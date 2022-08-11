@@ -1,4 +1,3 @@
-from sqlalchemy.orm import Session
 from invoke import task
 from app.config import settings
 from app.model import User
