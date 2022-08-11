@@ -34,8 +34,8 @@ jobs:
           cd fast_api && poetry install
       - name: Lint with flake8
         run: |
-          poetry run flake8 fast_api/ --count --show-source --statistics
-          poetry run flake8 fast_api/ --count --exit-zero --max-complexity=10 --statistics
+          cd fast_api &&  poetry run flake8 . --count --show-source --statistics
+          cd fast_api &&  poetry run flake8 . --count --exit-zero --max-complexity=10 --statistics
       - name: cd fast_api && run pytest
         run: |
           cd fast_api && poetry run pytest
