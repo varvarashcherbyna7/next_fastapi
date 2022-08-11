@@ -15,7 +15,7 @@ class User(Base):
     password_hash = Column(String(128), nullable=False)
     created_at = Column(DateTime(), default=datetime.now)
 
-    posts = relationship("Post", viewonly=True)
+    # posts = relationship("Post", viewonly=True)
 
     @property
     def password(self):

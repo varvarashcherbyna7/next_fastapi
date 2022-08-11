@@ -24,26 +24,25 @@ def init_db(_, test_data=False):
         email=settings.ADMIN_EMAIL,
     )
     db.add(admin)
-    if test_data:
-        # Add test data
-        fill_test_data(db)
+    # if test_data:
+    # Add test data
+    # fill_test_data(db)
 
     db.commit()
 
+    # def fill_test_data(db: Session):
+    #     from app.model import Post
 
-def fill_test_data(db: Session):
-    from app.model import Post
-
-    for uid in range(NUM_TEST_USERS):
-        user = User(username=f"User{uid}", password="pa$$", email=f"user{uid}@test.com")
-        db.add(user)
-        db.commit()
-        db.refresh(user)
-        for pid in range(NUM_TEST_POSTS):
-            db.add(
-                Post(
-                    title=f"Title{pid}",
-                    content=(f"Test of post {pid}" * (pid + 1)),
-                    user=user,
-                )
-            )
+    #     for uid in range(NUM_TEST_USERS):
+    #         user = User(username=f"User{uid}", password="pa$$", email=f"user{uid}@test.com")
+    #         db.add(user)
+    #         db.commit()
+    #         db.refresh(user)
+    #         for pid in range(NUM_TEST_POSTS):
+    #             db.add(
+    #                 Post(
+    #                     title=f"Title{pid}",
+    #                     content=(f"Test of post {pid}" * (pid + 1)),
+    #                     user=user,
+    #                 )
+    #             )

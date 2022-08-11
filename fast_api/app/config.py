@@ -2,6 +2,7 @@ from pydantic import BaseSettings, EmailStr
 
 
 class Settings(BaseSettings):
+    SERVER_NAME: str = "server_name"
     SAMPLE_ENV_VAR: str = "<None>"
     JWT_SECRET: str = "<None>"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30

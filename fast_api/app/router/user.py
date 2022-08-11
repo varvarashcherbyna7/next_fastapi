@@ -3,7 +3,7 @@ from app import model, schema, oauth2
 from app.database import get_db
 from sqlalchemy.orm import Session
 
-router = APIRouter(prefix="/user", tags=["Users"])
+router = APIRouter(prefix="/backend/user", tags=["Users"])
 
 
 @router.post("/", status_code=201, response_model=schema.UserOut)
