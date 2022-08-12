@@ -27,27 +27,9 @@ const SidebarLayout: React.FC<ISidebarLayout> = () => {
     setIsActiveSearch(false);
   };
 
-  // Open and Close Search Bar Toggle
-  //   const searchBlock: any = document.querySelector('.search-block');
-  //   const searchToggle: any = document.querySelector('.search-toggle');
-  //   const searchCancel: any = document.querySelector('.search-cancel');
-
-  //   if (searchToggle && searchCancel) {
-  //     searchToggle.addEventListener('click', () => {
-  //       searchBlock.classList.add('is-active');
-  //     });
-
-  //     searchCancel.addEventListener('click', () => {
-  //       searchBlock.classList.remove('is-active');
-  //     });
-  //   }
-
   return (
     <header className={styles.header} id="header">
       <nav className={`${styles.navbar} ${styles.container}`}>
-        {/* <a href="./index.html" className="brand">
-          Brand
-        </a> */}
         <Link href="/">
           <a className={styles.brand}>Brand</a>
         </Link>
