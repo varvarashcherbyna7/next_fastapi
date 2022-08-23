@@ -7,6 +7,33 @@ import styles from './SidebarLayout.module.css';
 
 export interface ISidebarLayout {}
 
+const sidebarItems = [
+  {
+    href: '/',
+    name: 'Home',
+  },
+  {
+    href: '/about',
+    name: 'About',
+  },
+  {
+    href: '/service',
+    name: 'Service',
+  },
+  {
+    href: '/project',
+    name: 'Project',
+  },
+  {
+    href: '/support',
+    name: 'Support',
+  },
+  // {
+  //   href: '/login',
+  //   name: 'login',
+  // },
+];
+
 const SidebarLayout: React.FC<ISidebarLayout> = () => {
   const [isActive, setIsActive] = useState(false);
   const [isActiveSearch, setIsActiveSearch] = useState(false);
@@ -53,29 +80,24 @@ const SidebarLayout: React.FC<ISidebarLayout> = () => {
           id="menu"
         >
           <ul className={styles.menuInner}>
+            {sidebarItems.map((item, index) => {
+              return (
+                <li
+                  className={styles.menuItem}
+                  onClick={closeBurgerMenu}
+                  key={index}
+                >
+                  <Link href={item.href}>
+                    <a className={styles.menuLink}>{item.name}</a>
+                  </Link>
+                </li>
+              );
+            })}
             <li className={styles.menuItem} onClick={closeBurgerMenu}>
-              <Link href="/">
-                <a className={styles.menuLink}>Home</a>
-              </Link>
-            </li>
-            <li className={styles.menuItem} onClick={closeBurgerMenu}>
-              <Link href="/about">
-                <a className={styles.menuLink}>About</a>
-              </Link>
-            </li>
-            <li className={styles.menuItem} onClick={closeBurgerMenu}>
-              <Link href="/service">
-                <a className={styles.menuLink}>Service</a>
-              </Link>
-            </li>
-            <li className={styles.menuItem} onClick={closeBurgerMenu}>
-              <Link href="/project">
-                <a className={styles.menuLink}>Project</a>
-              </Link>
-            </li>
-            <li className={styles.menuItem} onClick={closeBurgerMenu}>
-              <Link href="/support">
-                <a className={styles.menuLink}>Support</a>
+              <Link href={'/login'}>
+                <a className={styles.menuLogin}>
+                  <Icon icon="ri:login-circle-line" />
+                </a>
               </Link>
             </li>
           </ul>

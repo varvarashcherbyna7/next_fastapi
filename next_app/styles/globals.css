@@ -19,6 +19,31 @@ html {
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+html {
+  --asm-default-transition: 300ms;
+  --asm-color-facebook: rgb(59, 89, 152);
+  --asm-color-twitter: rgb(85, 172, 238);
+  --asm-color-google: rgb(219, 68, 55);
+  --asm-color-linkedin: rgb(0, 130, 202);
+}
+
+html {
+  --asm-color-warning: #ffc107;
+  --asm-color-danger: #dc3545;
+  --asm-color-dark: #343a40;
+  --asm-color-focus: rgba(0, 123, 255, 0.25);
+  --asm-color-secondary: #3f5c80;
+  --asm-color-accent: #b4c2c9;
+  --asm-color-flat: #6a9ed3;
+  --asm-color-sidenav-item: rgba(29, 54, 86, 0.6);
+  --asm-color-input-border: rgba(52, 58, 64, 0.25);
+  --asm-color-btn-secondary: #64c3f0;
+  --asm-color-background: #fff;
+  --asm-color-text: #343a40;
+  --asm-color-secondary-text: #fff;
+  --asm-color-social: #fff;
+}
+
 *,
 *::before,
 *::after {
@@ -76,4 +101,15 @@ img {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+}
+
+/* modal for form */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: var(--color-light);
 }

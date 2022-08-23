@@ -84,6 +84,15 @@
   color: var(--color-blue-200);
 }
 
+.menuLogin {
+  align-self: center;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.3rem;
+  color: var(--color-blue-100);
+}
+
 /* Media Query Breakpoint */
 @media only screen and (min-width: 48rem) {
   .menu {
