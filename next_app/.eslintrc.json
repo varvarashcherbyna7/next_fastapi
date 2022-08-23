@@ -2,10 +2,8 @@
   "extends": [
     "plugin:storybook/recommended",
     "next",
-    "next/babel",
     "next/core-web-vitals",
-    "eslint:recommended",
-    "prettier"
+    "eslint:recommended"
   ],
   "globals": {
     "React": "readonly"
