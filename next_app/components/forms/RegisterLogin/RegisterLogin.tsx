@@ -1,7 +1,11 @@
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/router';
+import { useAppDispatch, useAppSelector } from 'pages/hooks/redux';
+import { userApi } from 'pages/services/UserServices';
+import { IReqInfoUser } from 'pages/store/reducers/userTypes';
 import { useState } from 'react';
 import styles from './RegisterLogin.module.css';
+
 export interface IRegisterLogin {}
 
 const RegisterLogin: React.FC<IRegisterLogin> = () => {
@@ -47,6 +51,43 @@ const RegisterLogin: React.FC<IRegisterLogin> = () => {
   const [formName, setFormName] = useState('frmSignIn');
 
   const showForm = (name: string) => setFormName(name);
+
+  // const dispatch = useAppDispatch();
+  // const { user, isLoading, error } = useAppSelector(
+  //   (state) => state.UserReducer
+  // );
+
+  const [regUser, result] = userApi.useRegistrationUserMutation();
+
+  const [username, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  // const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const registrationUser = async () => {
+    console.log(' == REGISTRATION == ');
+    console.log(
+      'registrationUser: from env => URI ',
+      process.env.NEXT_PUBLIC_API_URL
+    );
+
+    // TODO: add validations for inputs
+    if (password !== confirmPassword) {
+      return;
+    }
+    const reqUserInfoData: IReqInfoUser = {
+      username: username,
+      email: email,
+      // phone: phone,
+      password: password,
+    };
+    console.log(' reqUserInfoData ', reqUserInfoData);
+    const res = regUser(reqUserInfoData);
+    // dispatch(registrationUser(reqUserInfoData));
+
+    console.log(' res => ', res);
+  };
 
   return (
     <div className={styles.container}>
@@ -417,6 +458,8 @@ const RegisterLogin: React.FC<IRegisterLogin> = () => {
               data-regex="^[a-z0-9]{6,20}$"
               type="text"
               name="username"
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
               id="registerUsername"
               required
               placeholder="username"
@@ -441,6 +484,8 @@ const RegisterLogin: React.FC<IRegisterLogin> = () => {
               data-regex="\S+@\S+\.\S+"
               type="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               id="registerEmail"
               required
               placeholder="email"
@@ -448,7 +493,7 @@ const RegisterLogin: React.FC<IRegisterLogin> = () => {
 
             <div className={styles.asmForm__error}>Invalid Email</div>
           </div>
-          <div className={styles.asmForm__inputbox}>
+          {/* <div className={styles.asmForm__inputbox}>
             <svg
               className={`${styles.asmForm__icon} ${styles.prepend}`}
               xmlns="http://www.w3.org/2000/svg"
@@ -462,6 +507,8 @@ const RegisterLogin: React.FC<IRegisterLogin> = () => {
               data-regex="^[+]{1}[0-9]{9,12}"
               type="tel"
               name="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               id="registerPhone"
               required
               placeholder="phone"
@@ -470,7 +517,7 @@ const RegisterLogin: React.FC<IRegisterLogin> = () => {
             <div className={styles.asmForm__error}>
               Please enter phone in valid international format +XXXXXXXXXXXX
             </div>
-          </div>
+          </div> */}
           <div className={styles.asmForm__inputbox}>
             <svg
               className={`${styles.asmForm__icon} ${styles.prepend}`}
@@ -485,6 +532,8 @@ const RegisterLogin: React.FC<IRegisterLogin> = () => {
               data-regex=".{6,}"
               type={typeInput[1].type}
               name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               id="registerPassword"
               required
               placeholder="password"
@@ -518,6 +567,8 @@ const RegisterLogin: React.FC<IRegisterLogin> = () => {
               data-target="#registerPassword"
               type={typeInput[2].type}
               name="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               id="registerPasswordRetry"
               required
               placeholder="repeat password"
@@ -549,9 +600,13 @@ const RegisterLogin: React.FC<IRegisterLogin> = () => {
         </div>
 
         <div className={styles.asmForm__footer}>
-          <button className={styles.asmForm__btn} id="registerSubmit">
+          <div
+            className={styles.asmForm__btn}
+            // id="registerSubmit"
+            onClick={registrationUser}
+          >
             Register
-          </button>
+          </div>
         </div>
       </form>
     </div>
