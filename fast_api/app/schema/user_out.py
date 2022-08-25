@@ -8,6 +8,7 @@ class UserOut(BaseModel):
     username: str
     email: EmailStr
     created_at: Optional[datetime]
+    info_registration: Optional[str]
 
     class Config:
         orm_mode = True
