@@ -1,8 +1,7 @@
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/router';
-import { useAppDispatch, useAppSelector } from 'pages/hooks/redux';
-import { userApi } from 'pages/services/UserServices';
-import { IReqInfoUser } from 'pages/store/reducers/userTypes';
+import { userApi } from 'pages/api/redux/services/UserServices';
+import { IReqInfoUser } from 'pages/api/redux/store/reducers/userTypes';
 import { useState } from 'react';
 import styles from './RegisterLogin.module.css';
 
@@ -83,10 +82,9 @@ const RegisterLogin: React.FC<IRegisterLogin> = () => {
       password: password,
     };
     console.log(' reqUserInfoData ', reqUserInfoData);
-    const res = regUser(reqUserInfoData);
+    regUser(reqUserInfoData);
     // dispatch(registrationUser(reqUserInfoData));
-
-    console.log(' res => ', res);
+    console.log('result ', result);
   };
 
   return (
