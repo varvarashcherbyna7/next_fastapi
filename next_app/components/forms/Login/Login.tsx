@@ -97,7 +97,7 @@ const Login: React.FC<ILogin> = () => {
             </label>
             <div
               className={styles.asmForm__link}
-              onClick={() => push('/forgot_password')}
+              onClick={() => push('/user/forgot_password')}
             >
               Forgot password
             </div>
@@ -106,7 +106,7 @@ const Login: React.FC<ILogin> = () => {
             Not a member?{' '}
             <div
               className={styles.asmForm__link}
-              onClick={() => push('/registration')}
+              onClick={() => push('/user/registration')}
             >
               Register
             </div>

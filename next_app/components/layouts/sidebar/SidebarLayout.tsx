@@ -94,7 +94,7 @@ const SidebarLayout: React.FC<ISidebarLayout> = () => {
               );
             })}
             <li className={styles.menuItem} onClick={closeBurgerMenu}>
-              <Link href={'/login'}>
+              <Link href={'/user/login'}>
                 <a className={styles.menuLogin}>
                   <Icon icon="ri:login-circle-line" />
                 </a>

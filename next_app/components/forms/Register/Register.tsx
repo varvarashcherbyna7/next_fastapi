@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import IconCross from '../IconCross/IconCross';
 import styles from '../RegisterLogin.module.css';
-// import { userApiServices } from 'pages/api/redux/services/UserServices';
+import { userApiServices } from 'pages/api/redux/services/UserServices';
 import { IReqInfoUser } from 'pages/api/redux/store/reducers/userTypes';
 import { socialBtns } from '../socialBtnsData';
 
@@ -70,6 +70,8 @@ const Register: React.FC<IRegister> = () => {
     // regUser(reqUserInfoData);
   };
 
+  // console.log('Register: result ', result);
+
   return (
     <div className={styles.container}>
       <div className={styles.asmForm}>
@@ -82,7 +84,7 @@ const Register: React.FC<IRegister> = () => {
             Already member?{' '}
             <div
               className={styles.asmForm__link}
-              onClick={() => push('/login')}
+              onClick={() => push('/user/login')}
             >
               Sign in
             </div>

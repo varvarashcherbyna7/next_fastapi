@@ -21,7 +21,7 @@ const ForgotPassword: React.FC<IForgotPassword> = () => {
           <div className={styles.asmForm__linkbox}>
             <button
               className={styles.asmForm__link}
-              onClick={() => push('/login')}
+              onClick={() => push('/user/login')}
             >
               Sign in
             </button>
@@ -53,7 +53,7 @@ const ForgotPassword: React.FC<IForgotPassword> = () => {
             Not a member?{' '}
             <button
               className={styles.asmForm__link}
-              onClick={() => push('/registration')}
+              onClick={() => push('/user/registration')}
             >
               Register
             </button>
