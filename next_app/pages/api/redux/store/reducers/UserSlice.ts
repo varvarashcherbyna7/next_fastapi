@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { registrationUser } from './ActionCreators';
 import { IReqInfoUser, IUserState } from './userTypes';
+import { HYDRATE } from 'next-redux-wrapper';
 
 const initialState: IUserState = {
   user: {

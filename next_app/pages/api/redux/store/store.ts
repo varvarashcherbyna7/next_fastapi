@@ -1,4 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { createWrapper } from 'next-redux-wrapper';
 import { userApiServices } from '../services/UserServices';
 // import UserReducer from './reducers/userSlice';
 
@@ -15,6 +16,8 @@ export const setupStore = () => {
     },
   });
 };
+
+export const wrapper = createWrapper(setupStore);
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;
