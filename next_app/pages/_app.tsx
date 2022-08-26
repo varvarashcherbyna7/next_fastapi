@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import '../styles/globals.css';
 import { NextPageWithLayout } from './page';
 import { Provider } from 'react-redux';
-import { setupStore } from './api/redux/store/store';
+import { setupStore, wrapper } from './api/redux/store/store';
 
 interface AppPropsWithLayout extends AppProps {
   Component: NextPageWithLayout;
@@ -21,4 +21,4 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
