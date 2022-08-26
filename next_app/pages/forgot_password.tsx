@@ -1,21 +1,21 @@
-import Login from 'components/forms/Login/Login';
+import ForgotPassword from 'components/forms/ForgotPassword/ForgotPassword';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
 import SidebarLayout from '../components/layouts/sidebar/SidebarLayout';
 import { NextPageWithLayout } from './page';
 
-const LoginPage: NextPageWithLayout = () => {
+const ForgotPasswordPage: NextPageWithLayout = () => {
   return (
     <div className="modal">
       <div className="modalContainer">
-        <Login />
+        <ForgotPassword />
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default ForgotPasswordPage;
 
-LoginPage.getLayout = (page) => {
+ForgotPasswordPage.getLayout = (page) => {
   return (
     <PrimaryLayout>
       <SidebarLayout />

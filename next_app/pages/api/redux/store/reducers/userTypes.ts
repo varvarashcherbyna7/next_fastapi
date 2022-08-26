@@ -4,6 +4,7 @@ export interface IReqInfoUser {
   email: string;
   // phone: string;
   password: string;
+  info_registration?: string;
 }
 
 export interface IUserState {

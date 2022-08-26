@@ -1,21 +1,21 @@
-import Login from 'components/forms/Login/Login';
+import Register from 'components/forms/Register/Register';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
 import SidebarLayout from '../components/layouts/sidebar/SidebarLayout';
 import { NextPageWithLayout } from './page';
 
-const LoginPage: NextPageWithLayout = () => {
+const RegisterPage: NextPageWithLayout = () => {
   return (
     <div className="modal">
       <div className="modalContainer">
-        <Login />
+        <Register />
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
 
-LoginPage.getLayout = (page) => {
+RegisterPage.getLayout = (page) => {
   return (
     <PrimaryLayout>
       <SidebarLayout />

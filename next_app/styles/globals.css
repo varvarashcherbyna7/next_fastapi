@@ -113,3 +113,7 @@ img {
   z-index: 100;
   background-color: var(--color-light);
 }
+
+.modalContainer {
+  height: 100%;
+}
