@@ -25,23 +25,27 @@ async function supportCssModules(config) {
 
 
 module.exports = {
+  "core": {
+    "builder": "@storybook/builder-webpack5"
+  },
   "stories": ['../**/*.stories.mdx', '../**/*.stories.@(js|jsx|ts|tsx)'],
   /** Expose public folder to storybook as static */
   "staticDirs": ['../public'],
   "addons": [
     "@storybook/addon-links",
+    // '@storybook/addon-actions',
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "storybook-addon-next-router",
-    "storybook-css-modules",
-    '@storybook/addon-actions',
+    // "@storybook/addon-interactions",
     // 'storybook-addon-next',
-    // '@storybook/addon-links'
+    "storybook-addon-next-router",
+    // '@storybook/addon-postcss',
+    // "storybook-css-modules",
+    // "storybook-addon-turbo-build",
+    // "@storybook/addon-controls"
+    
   ],
   "framework": "@storybook/react",
-  "core": {
-    "builder": "@storybook/builder-webpack5"
-  },
+  
   // FIXME: Support CSS Modules for Storybook
-  webpackFinal: supportCssModules,
+  webpackFinal: supportCssModules
 }
