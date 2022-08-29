@@ -1,13 +1,13 @@
 import Error from 'components/info/Error/Error';
 import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
 import SidebarLayout from '../../components/layouts/sidebar/SidebarLayout';
-import { NextPageWithLayout } from '../page';
+import { NextPageWithLayout } from '../_page';
 
 const ErrorPage: NextPageWithLayout = () => {
   return (
     <div className="modal">
       <div className="modalContainer">
-        <Error />
+        <Error message={''} subText={''} />
       </div>
     </div>
   );

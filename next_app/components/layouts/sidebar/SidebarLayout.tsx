@@ -77,7 +77,7 @@ const SidebarLayout: React.FC<ISidebarLayout> = () => {
           className={
             isActive ? `${styles.menu} ${styles.isActive}` : `${styles.menu}`
           }
-          id="menu"
+          // id="menu"
         >
           <ul className={styles.menuInner}>
             {sidebarItems.map((item, index) => {

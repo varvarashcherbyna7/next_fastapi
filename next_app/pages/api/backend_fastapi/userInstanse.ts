@@ -1,4 +1,4 @@
-import { IReqInfoUser } from 'pages/api/redux/store/reducers/userTypes';
+import { IReqInfoUser } from 'redux/store/reducers/userTypes';
 import { instance } from './_axiosInstance';
 
 export const userApi = {

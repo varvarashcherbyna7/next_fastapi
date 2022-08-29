@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import IconCross from '../IconCross/IconCross';
 import styles from '../RegisterLogin.module.css';
-import { userApiServices } from 'pages/api/redux/services/UserServices';
-import { IReqInfoUser } from 'pages/api/redux/store/reducers/userTypes';
+import { userApiServices } from '../../../redux/services/UserServices';
+import { IReqInfoUser } from 'redux/store/reducers/userTypes';
 import { socialBtns } from '../socialBtnsData';
 
 export interface IRegister {}
@@ -40,13 +40,16 @@ const Register: React.FC<IRegister> = () => {
   };
 
   // RTK Query
-  // const [regUser, result] = userApiServices.useRegistrationUserMutation();
+  const [regUser, result] = userApiServices.useRegistrationUserMutation();
 
   const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
   // const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [isLoading, setLoading] = useState<boolean | null>(null);
+  const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
+  const [isError, setIsError] = useState<boolean | null>(null);
 
   const registrationUser = async () => {
     console.log(' == REGISTRATION == ');
@@ -65,15 +68,20 @@ const Register: React.FC<IRegister> = () => {
       // phone: phone,
       password: password,
     };
-    console.log('reqUserInfoData ', reqUserInfoData);
 
-    // regUser(reqUserInfoData);
+    regUser(reqUserInfoData);
+    setLoading(result.isLoading);
+    setIsSuccess(result.isSuccess);
+    setIsError(result.isError);
   };
 
-  // console.log('Register: result ', result);
+  console.log('Register: result ', result);
 
   return (
     <div className={styles.container}>
+      {isLoading && <div>Loading ...</div>}
+      {isSuccess && <div>Success ...</div>}
+      {isError && <div>Error ...</div>}
       <div className={styles.asmForm}>
         <IconCross />
         <div className={styles.asmForm__header}>
@@ -113,14 +121,14 @@ const Register: React.FC<IRegister> = () => {
             </svg>
             <input
               className={`${styles.asmForm__input} ${styles.validate}`}
-              data-validation="regex"
-              data-regex="^[a-z0-9]{6,20}$"
+              // data-validation="regex"
+              // data-regex="^[a-z0-9]{6,20}$"
               type="text"
               name="username"
               value={username}
               onChange={(e) => setUserName(e.target.value)}
-              id="registerUsername"
-              required
+              // id="registerUsername"
+              // required
               placeholder="username"
             />
 
@@ -139,14 +147,14 @@ const Register: React.FC<IRegister> = () => {
             </svg>
             <input
               className={`${styles.asmForm__input} ${styles.validate}`}
-              data-validation="regex"
-              data-regex="\S+@\S+\.\S+"
+              // data-validation="regex"
+              // data-regex="\S+@\S+\.\S+"
               type="email"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              id="registerEmail"
-              required
+              // id="registerEmail"
+              // required
               placeholder="email"
             />
 
@@ -187,14 +195,14 @@ const Register: React.FC<IRegister> = () => {
             </svg>
             <input
               className={`${styles.asmForm__input} ${styles.validate}`}
-              data-validation="regex"
-              data-regex=".{6,}"
+              // data-validation="regex"
+              // data-regex=".{6,}"
               type={typeInput[1].type}
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              id="registerPassword"
-              required
+              // id="registerPassword"
+              // required
               placeholder="password"
             />
 
@@ -222,14 +230,14 @@ const Register: React.FC<IRegister> = () => {
             </svg>
             <input
               className={`${styles.asmForm__input} ${styles.validate}`}
-              data-validation="match"
-              data-target="#registerPassword"
+              // data-validation="match"
+              // data-target="#registerPassword"
               type={typeInput[2].type}
               name="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              id="registerPasswordRetry"
-              required
+              // id="registerPasswordRetry"
+              // required
               placeholder="repeat password"
             />
             <svg

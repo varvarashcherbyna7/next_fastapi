@@ -91,7 +91,7 @@ const Login: React.FC<ILogin> = () => {
                 className={styles.asmForm__lever}
                 type="checkbox"
                 name="remember"
-                id="signinRemember"
+                // id="signinRemember"
               />
               <span className={styles.asmForm__leverText}>Remember me</span>
             </label>

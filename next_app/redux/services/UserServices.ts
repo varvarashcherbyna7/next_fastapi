@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { IReqInfoUser } from 'pages/api/redux/store/reducers/userTypes';
+import { IReqInfoUser } from 'redux/store/reducers/userTypes';
 
 const URI = process.env.NEXT_PUBLIC_API_URL;
 

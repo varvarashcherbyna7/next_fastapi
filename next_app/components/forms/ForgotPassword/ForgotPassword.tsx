@@ -41,7 +41,7 @@ const ForgotPassword: React.FC<IForgotPassword> = () => {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              id="forgetEmail"
+              // id="forgetEmail"
               placeholder="email"
             />
             <label className={styles.asmForm__inputlabel} htmlFor="forgetEmail">
@@ -61,7 +61,10 @@ const ForgotPassword: React.FC<IForgotPassword> = () => {
         </div>
 
         <div className={styles.asmForm__footer}>
-          <button className={styles.asmForm__btn} id="forgetSubmit">
+          <button
+            className={styles.asmForm__btn}
+            // id="forgetSubmit"
+          >
             Send
           </button>
         </div>
