@@ -1,8 +1,4 @@
 async function supportCssModules(config) {
-  // console.log('1=================================')
-  // console.log('>>>config', config.module.rules)
-  // console.log('1=================================')
-
   config.module.rules.find(
     (rule) => rule.test.toString() === '/\\.css$/'
   ).exclude = /\.module\.css$/
@@ -19,8 +15,7 @@ async function supportCssModules(config) {
       },
     ],
   })
-
-  return config
+  return config;
 }
 
 
@@ -38,6 +33,7 @@ module.exports = {
     // "@storybook/addon-interactions",
     // 'storybook-addon-next',
     "storybook-addon-next-router",
+    "@storybook/addon-docs",
     // '@storybook/addon-postcss',
     // "storybook-css-modules",
     // "storybook-addon-turbo-build",

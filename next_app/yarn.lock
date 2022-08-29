@@ -2354,7 +2354,7 @@
     lodash "^4.17.21"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-docs@6.5.10":
+"@storybook/addon-docs@6.5.10", "@storybook/addon-docs@^6.5.10":
   version "6.5.10"
   resolved "https://registry.yarnpkg.com/@storybook/addon-docs/-/addon-docs-6.5.10.tgz#dde18b5659e8033651e139a231a7f69306433b92"
   integrity sha512-1kgjo3f0vL6GN8fTwLL05M/q/kDdzvuqwhxPY/v5hubFb3aQZGr2yk9pRBaLAbs4bez0yG0ASXcwhYnrEZUppg==
@@ -3637,6 +3637,13 @@
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
+
+"@types/next-redux-wrapper@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/next-redux-wrapper/-/next-redux-wrapper-3.0.0.tgz#45835a2e702e76d30b57125dc808db636f54fa2c"
+  integrity sha512-c0SQGq+t8CKWG1CXE8DGBvUpnx/BWVx81wR8IZv4Y8MeAfMT6+/X7hh3WZcPw2OXEiyzASl2c3rQKowQaNcW0A==
+  dependencies:
+    next-redux-wrapper "*"
 
 "@types/node-fetch@^2.5.7":
   version "2.6.2"
@@ -12136,6 +12143,11 @@ next-auth@^4.10.3:
     preact "^10.6.3"
     preact-render-to-string "^5.1.19"
     uuid "^8.3.2"
+
+next-redux-wrapper@*, next-redux-wrapper@^7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-7.0.5.tgz#109cd3fe02183b18fbd094924cfcbd21262039dc"
+  integrity sha512-UFXdAWG5i+GFT8+Hoqpx3GArkPh34fVWF9YoA2VSHlBzsrPtnRd7NWM6FNSYUennpommTpWJ09mu+r/1UxyIkg==
 
 next-tick@^1.1.0:
   version "1.1.0"

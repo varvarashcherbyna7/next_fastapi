@@ -9,15 +9,6 @@ module.exports = async (phase, { defaultConfig }) => {
     NEXT_PUBLIC_SECRET_KEY: process.env.NEXT_PUBLIC_SECRET_KEY,
   },
   pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
-  // exportPathMap: async function (
-  //   defaultPathMap,
-  //   { dev, dir, outDir, distDir, buildId }
-  // ) {
-  //   return {
-  //     '/': { page: '/' },
-      
-  //   }
-  // },
   images: {
     // domains: ['storage.googleapis.com', 'coinpayments.net'],
     minimumCacheTTL: 1500000,
