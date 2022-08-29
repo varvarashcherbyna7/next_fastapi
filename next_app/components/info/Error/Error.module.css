@@ -147,13 +147,13 @@
   background-color: #416475;
 }
 
-button,
+/* button,
 input,
 select,
 textarea {
   font-family: 'Montserrat', Helvetica, sans-serif;
   color: #92a4ad;
-}
+} */
 
 h1 {
   text-align: center;
