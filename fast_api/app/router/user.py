@@ -7,6 +7,15 @@ from app.services import UserService
 router = APIRouter(prefix="/backend/user", tags=["Users"])
 
 
+@router.post("/check_email", status_code=201, response_model=schema.UserOut)
+def user(data_user: schema.UserCreate, db: Session = Depends(get_db)):
+    user = db.query(model.User).filter(model.User.email == data_user.email).first()
+    user_service = UserService()
+    if not user:
+        return
+    return user_service.user_registration(user, "user is already registered")
+
+
 @router.post("/registration", status_code=201, response_model=schema.UserOut)
 def create_user(data_user: schema.UserCreate, db: Session = Depends(get_db)):
     user = db.query(model.User).filter(model.User.email == data_user.email).first()
