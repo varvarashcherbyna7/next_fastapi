@@ -39,7 +39,7 @@
   margin: 0 auto;
 }
 
-i {
+.checkmark {
   color: var(--success-card-text);
   font-size: 100px;
   line-height: 200px;
