@@ -1,3 +1,4 @@
+from typing import Union
 from fastapi import HTTPException, Depends, APIRouter
 from app import model, schema, oauth2
 from app.database import get_db
@@ -7,13 +8,12 @@ from app.services import UserService
 router = APIRouter(prefix="/backend/user", tags=["Users"])
 
 
-@router.post("/check_email", status_code=201, response_model=schema.UserOut)
-def user(data_user: schema.UserCreate, db: Session = Depends(get_db)):
-    user = db.query(model.User).filter(model.User.email == data_user.email).first()
-    user_service = UserService()
+@router.post("/check_email", response_model=str)
+def check_email(data: schema.CheckEmailUser, db: Session = Depends(get_db)):
+    user = db.query(model.User).filter(model.User.email == data.email).first()
     if not user:
-        return
-    return user_service.user_registration(user, "user is already registered")
+        return "you have to register"
+    return "user is already registered"
 
 
 @router.post("/registration", status_code=201, response_model=schema.UserOut)
