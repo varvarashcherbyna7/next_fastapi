@@ -7,6 +7,10 @@ import { IReqInfoUser } from 'redux/store/reducers/userTypes';
 import { socialBtns } from '../socialBtnsData';
 import SvgIcon from 'components/common/SvgIcons/SvgIcons';
 import CustomInput from 'components/common/CustomInput/CustomInput';
+import { userApi } from 'pages/api/backend_fastapi/userInstanse';
+import InfoInput from 'components/common/InfoInput/InfoInput';
+import Loader from 'components/common/Loader/Loader';
+import ErrorInfo from 'components/common/InfoInput/ErrorInfo';
 
 export interface IRegister {}
 
@@ -49,6 +53,7 @@ const Register: React.FC<IRegister> = () => {
   const [isLoading, setLoading] = useState<boolean | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
   const [isError, setIsError] = useState<boolean | null>(null);
+  const [userEmailInfo, setUserEmailInfo] = useState('');
 
   const registrationUser = async () => {
     console.log(' == REGISTRATION == ');
@@ -58,7 +63,7 @@ const Register: React.FC<IRegister> = () => {
     );
 
     // TODO: add validations for inputs
-    if (password !== confirmPassword) {
+    if (password !== confirmPassword || userEmailInfo.length > 0) {
       return;
     }
     const reqUserInfoData: IReqInfoUser = {
@@ -75,13 +80,25 @@ const Register: React.FC<IRegister> = () => {
     setIsError(result.isError);
   };
 
-  console.log('Register: result ', result);
+  const checkEmail = async (value: string) => {
+    const data = {
+      email: value,
+    };
+    const info = await userApi.checkEmail(data);
+    // TODO: from db we can get two variant of info! This logic can change
+    if (info === 'user is already registered') {
+      setUserEmailInfo(info);
+    } else {
+      setUserEmailInfo('');
+    }
+  };
+
+  if (isSuccess) push('/user/login');
 
   return (
     <div className={styles.container}>
-      {isLoading && <div>Loading ...</div>}
-      {isSuccess && <div>Success ...</div>}
-      {isError && <div>Error ...</div>}
+      {isLoading && <Loader />}
+      {isError && <ErrorInfo infoError={'Error ...'} />}
       <div className={styles.asmForm}>
         <IconCross />
         <div className={styles.asmForm__header}>
@@ -124,6 +141,7 @@ const Register: React.FC<IRegister> = () => {
               setValue={setUserName}
               type={'text'}
               placeholder={'user name'}
+              complete={'off'}
             />
             <div className={styles.asmForm__error}>
               Username must be [6,20] symbols and contain only small letters and
@@ -131,6 +149,7 @@ const Register: React.FC<IRegister> = () => {
             </div>
           </div>
           <div className={styles.asmForm__inputbox}>
+            {userEmailInfo.length > 0 && <InfoInput info={userEmailInfo} />}
             <SvgIcon
               viewBox={'0 0 512 512'}
               path={
@@ -143,6 +162,8 @@ const Register: React.FC<IRegister> = () => {
               setValue={setEmail}
               type={'email'}
               placeholder={'email'}
+              handleFunction={checkEmail}
+              complete={'off'}
             />
             <div className={styles.asmForm__error}>Invalid Email</div>
           </div>
@@ -185,6 +206,7 @@ const Register: React.FC<IRegister> = () => {
               setValue={setPassword}
               type={typeInput[0].type}
               placeholder={'password'}
+              complete={'off'}
             />
             <SvgIcon
               viewBox={'0 0 576 512'}
@@ -213,6 +235,7 @@ const Register: React.FC<IRegister> = () => {
               setValue={setConfirmPassword}
               type={typeInput[1].type}
               placeholder={'repeat password'}
+              complete={'off'}
             />
             <SvgIcon
               viewBox={'0 0 576 512'}

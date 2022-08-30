@@ -1,4 +1,3 @@
-from typing import Union
 from fastapi import HTTPException, Depends, APIRouter
 from app import model, schema, oauth2
 from app.database import get_db

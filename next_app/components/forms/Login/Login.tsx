@@ -2,6 +2,7 @@ import CustomInput from 'components/common/CustomInput/CustomInput';
 import SvgIcon from 'components/common/SvgIcons/SvgIcons';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { userApiServices } from 'redux/services/UserServices';
 import IconCross from '../../common/IconCross/IconCross';
 import styles from '../RegisterLogin.module.css';
 import { socialBtns } from '../socialBtnsData';
@@ -14,12 +15,24 @@ const Login: React.FC<ILogin> = () => {
   const [password, setPassword] = useState('');
   const [type, setType] = useState('password');
 
+  const [loginUser, result] = userApiServices.useLoginUserMutation();
+  // console.log(user);
+
   const toggShowPassword = () => {
     if (type === 'password') {
       setType('text');
     } else {
       setType('password');
     }
+  };
+
+  const login = async () => {
+    const data = {
+      username: username,
+      password: password,
+    };
+
+    loginUser(data);
   };
 
   return (
@@ -115,7 +128,7 @@ const Login: React.FC<ILogin> = () => {
           </div>
         </div>
         <div className={styles.asmForm__footer}>
-          <button className={styles.asmForm__btn} id="signinSubmit">
+          <button className={styles.asmForm__btn} onClick={login}>
             Sign In
           </button>
         </div>

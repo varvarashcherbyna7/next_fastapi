@@ -6,6 +6,8 @@ export interface ICustomInput {
   type: string;
   placeholder: string;
   setValue: Dispatch<SetStateAction<string>>;
+  handleFunction?: Function;
+  complete?: string;
 }
 
 const CustomInput: React.FC<ICustomInput> = ({
@@ -13,7 +15,13 @@ const CustomInput: React.FC<ICustomInput> = ({
   type,
   placeholder,
   setValue,
+  handleFunction,
+  complete,
 }) => {
+  let autocomplete = 'on';
+  if (complete) {
+    autocomplete = complete;
+  }
   return (
     <input
       className={`${styles.asmForm__input} ${styles.validate}`}
@@ -22,8 +30,10 @@ const CustomInput: React.FC<ICustomInput> = ({
       value={value}
       onChange={(e) => {
         setValue(e.target.value);
+        if (handleFunction && value.length > 0) handleFunction(e.target.value);
       }}
       placeholder={placeholder}
+      autoComplete={autocomplete}
     />
   );
 };
