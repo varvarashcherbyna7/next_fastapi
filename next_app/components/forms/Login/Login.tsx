@@ -1,11 +1,11 @@
-import CustomInput from 'components/common/CustomInput/CustomInput';
-import Loader from 'components/common/Loader/Loader';
-import SvgIcon from 'components/common/SvgIcons/SvgIcons';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { useActions } from 'redux/hooks/useActions';
-import { useTypedSelector } from 'redux/hooks/useTypedSelector';
-import { useLoginUserMutation } from 'redux/services/UserServices';
+import { useRouter } from 'next/router';
+import CustomInput from '../../common/CustomInput/CustomInput';
+import Loader from '../../common/Loader/Loader';
+import SvgIcon from '../../common/SvgIcons/SvgIcons';
+import { useActions } from '../../../redux/hooks/useActions';
+import { useTypedSelector } from '../../../redux/hooks/useTypedSelector';
+import { useLoginUserMutation } from '../../../redux/services/UserServices';
 import IconCross from '../../common/IconCross/IconCross';
 import styles from '../RegisterLogin.module.css';
 import { socialBtns } from '../socialBtnsData';

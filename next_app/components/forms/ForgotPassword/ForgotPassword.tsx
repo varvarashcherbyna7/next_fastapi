@@ -1,5 +1,5 @@
-import CustomInput from 'components/common/CustomInput/CustomInput';
-import SvgIcon from 'components/common/SvgIcons/SvgIcons';
+import CustomInput from '../../common/CustomInput/CustomInput';
+import SvgIcon from '../../common/SvgIcons/SvgIcons';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import IconCross from '../../common/IconCross/IconCross';

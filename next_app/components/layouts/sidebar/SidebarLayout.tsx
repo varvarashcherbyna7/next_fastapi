@@ -1,9 +1,9 @@
+import { useState } from 'react';
+import Link from 'next/link';
 import arrowBack from '@iconify/icons-bx/arrow-back';
 import searchIcon from '@iconify/icons-bx/search';
 import { Icon } from '@iconify/react';
-import Link from 'next/link';
-import { useState } from 'react';
-import { useTypedSelector } from 'redux/hooks/useTypedSelector';
+import { useTypedSelector } from '../../../redux/hooks/useTypedSelector';
 import styles from './SidebarLayout.module.css';
 
 export interface ISidebarLayout {}

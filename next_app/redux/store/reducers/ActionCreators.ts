@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { userApi } from 'pages/api/backend_fastapi/userInstanse';
+import { userApi } from '../../../pages/api/backend_fastapi/userInstanse';
 // import { AppDispatch } from '../store';
 // import { userSlice } from './userSlice';
 import { IReqInfoUser, IUserLogin } from './userTypes';

@@ -3,14 +3,14 @@ import { useState } from 'react';
 import IconCross from '../../common/IconCross/IconCross';
 import styles from '../RegisterLogin.module.css';
 import { useRegistrationUserMutation } from '../../../redux/services/UserServices';
-import { IReqInfoUser } from 'redux/store/reducers/userTypes';
+import { IReqInfoUser } from '../../../redux/store/reducers/userTypes';
 import { socialBtns } from '../socialBtnsData';
-import SvgIcon from 'components/common/SvgIcons/SvgIcons';
-import CustomInput from 'components/common/CustomInput/CustomInput';
-import { userApi } from 'pages/api/backend_fastapi/userInstanse';
-import InfoInput from 'components/common/InfoInput/InfoInput';
-import Loader from 'components/common/Loader/Loader';
-import ErrorInfo from 'components/common/InfoInput/ErrorInfo';
+import SvgIcon from '../../common/SvgIcons/SvgIcons';
+import CustomInput from '../../common/CustomInput/CustomInput';
+import { userApi } from '../../../pages/api/backend_fastapi/userInstanse';
+import InfoInput from '../../common/InfoInput/InfoInput';
+import Loader from '../../common/Loader/Loader';
+import ErrorInfo from '../../common/InfoInput/ErrorInfo';
 
 export interface IRegister {}
 
